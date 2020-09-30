@@ -1,18 +1,15 @@
 language: node_js
 node_js:
-  - '14'
-  - '13'
-  - '12'
+  - "stable"
 
-cache: 
-  directories:
-    -node_modules
+cache:
+  directories: -node_modules
 script:
   - yarn test --watchAll=false
   - yarn build
-on: 
+on:
   branch: master
 deploy:
-    provider: heroku
-    api_key: $HEROKU_KEY  
-    app: $HEROKU_APP
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: $HEROKU_APP
